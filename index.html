@@ -59,10 +59,9 @@ Pixelbrain
         height: 1em;
         top: 6em;
         left: 2em;
-        filter: blur(1em);
-        -webkit-filter: blur(1em);
-        background: rgba(0, 0, 0, 0.9);
+      	background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.3) 0%,rgba(0,0,0,0.01) 50%) 100% 100%;
         animation: float-bottom 6s infinite;
+	      transform: scale(2.5, 4);
       }
       .loader svg {
         position: absolute;
@@ -92,7 +91,7 @@ Pixelbrain
         width: 3em;
         top: 0;
         left: 1em;
-        background: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, .2);
       }
       .loader .eye__eyelid {
         background: #067868;
@@ -126,7 +125,7 @@ Pixelbrain
         top: 1em;
         width: 1em;
         height: 1em;
-        opacity: 0.9;
+        opacity: .9;
         background: #000;
       }
       .loader .eye__pupil span {
@@ -143,7 +142,7 @@ Pixelbrain
         position: absolute;
         content: '';
         height: 1em;
-        background: rgba(0, 0, 0, 0.2);
+        background: rgba(0, 0, 0, .2);
       }
       .loader .eye__pupil span::before {
         left: 1em;
@@ -227,12 +226,15 @@ Pixelbrain
       @keyframes float-bottom {
         0% {
           opacity: 1;
+          transform: scale(2.5, 4);
         }
         50% {
-          opacity: 0.5;
+          opacity: .5;
+          transform: scale(2, 3.5);
         }
         100% {
           opacity: 1;
+          transform: scale(2.5, 4);
         }
       }
       </style>
