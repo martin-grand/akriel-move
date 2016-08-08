@@ -23,11 +23,9 @@ Pixelbrain
         background: #0cf0cf;
         animation: bg 180s infinite;
       }
-      
       *, *::after, *::before {
         backface-visibility: hidden;
       }
-      
       .loader {
         position: absolute;
         width: 14em;
@@ -41,7 +39,7 @@ Pixelbrain
       .loader__text {
         position: absolute;
         width: 320px;
-        top: calc(100% + 2em);
+        top: calc(100% + 3em);
         left: -98px;
         text-align: center;
         font-size: 2em;
@@ -57,11 +55,11 @@ Pixelbrain
         content: '';
         width: 10em;
         height: 1em;
-        top: 6em;
+        top: 8em;
         left: 2em;
       	background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.3) 0%,rgba(0,0,0,0.01) 50%) 100% 100%;
         animation: float-bottom 6s infinite;
-	      transform: scale(2.5, 4);
+	transform: scale(2.5, 4);
       }
       .loader svg {
         position: absolute;
@@ -154,7 +152,6 @@ Pixelbrain
         top: 1em;
         width: 1em;
       }
-      
       @keyframes eyemove {
         0% {
           transform: translateX(2em);
