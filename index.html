@@ -268,9 +268,17 @@ Pixelbrain
       </div>
       <span class="loader__text">
         Loading Pixelbrain...<br><b>It can take a few months!</b>
-        <iframe style="display:block;" src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fpixelbrain.io%2F&width=80&layout=button&action=like&size=large&show_faces=true&share=false&height=65&appId=190529737650178" width="80" height="65" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+        <div class="fb-like" data-href="https://www.facebook.com/pixelbrain.io" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="false"></div>
       </span>
     </div>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) return;
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=190529737650178";
+       fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
