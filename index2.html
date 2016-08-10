@@ -1,0 +1,291 @@
+
+<!--
+
+████████████    ████████████
+████        ████        ████
+  ██        ████        ██
+  ██      ██    ██      ██
+    ██████        ██████
+
+Pixelbrain
+
+-->
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pixelbrain</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <meta property="og:title" content="Pixelbrain" />
+    <meta property="og:image" content="http://pixelbrain.io/og-image.png" />
+    <meta property="og:site_name" content="Pixelbrain" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Loading Pixelbrain... It can take a few months!" />
+    <link href="https://fonts.googleapis.com/css?family=Cutive+Mono" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <style>
+      body {
+        background: #0cf0cf;
+        animation: bg 180s infinite;
+      }
+      *, *::after, *::before {
+        backface-visibility: hidden;
+      }
+      .loader {
+        position: absolute;
+        width: 14em;
+        height: 5em;
+        left: 50%;
+        top: 50%;
+        margin: -7em;
+        font-size: 9px;
+        animation: float-top 6s infinite;
+      }
+      .loader__text {
+        position: absolute;
+        width: 320px;
+        top: calc(100% + 3em);
+        left: -98px;
+        text-align: center;
+        font-size: 2em;
+        letter-spacing: -.075em;
+        font-family: 'Cutive Mono';
+      }
+      .loader__text iframe {
+        display: block;
+        margin: 30px auto 0;
+      }
+      .loader::after {
+        position: absolute;
+        content: '';
+        width: 10em;
+        height: 1em;
+        top: 8em;
+        left: 2em;
+      	background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.3) 0%,rgba(0,0,0,0.01) 50%) 100% 100%;
+        animation: float-bottom 6s infinite;
+	transform: scale(2.5, 4);
+      }
+      .loader svg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+      }
+      .loader .eye {
+        position: absolute;
+        width: 4em;
+        height: 3em;
+        top: 1em;
+        background: #fff;
+        overflow: hidden;
+      }
+      .loader .eye.eye--left {
+        left: 2em;
+      }
+      .loader .eye.eye--right {
+        left: 8em;
+      }
+      .loader .eye::after {
+        display: block;
+        position: absolute;
+        content: '';
+        height: 2em;
+        width: 3em;
+        top: 0;
+        left: 1em;
+        background: rgba(255, 255, 255, .2);
+      }
+      .loader .eye__eyelid {
+        background: #067868;
+        position: absolute;
+        left: 0;
+        width: 4em;
+        height: 2em;
+      }
+      .loader .eye__eyelid--top {
+        top: -2em;
+        animation: eyelid-top 4s infinite;
+      }
+      .loader .eye__eyelid--bottom {
+        top: 3em;
+        animation: eyelid-bottom 4s infinite;
+      }
+      .loader .eye__pupil {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 3em;
+        height: 3em;
+        background: #0cf0cf;
+        animation: eyemove 2.3s infinite;
+      }
+      .loader .eye__pupil::after {
+        display: block;
+        content: '';
+        position: absolute;
+        left: 1em;
+        top: 1em;
+        width: 1em;
+        height: 1em;
+        opacity: .9;
+        background: #000;
+      }
+      .loader .eye__pupil span {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1em;
+        height: 1em;
+        background: #fff;
+      }
+      .loader .eye__pupil span::before, .loader .eye__pupil span::after {
+        display: block;
+        position: absolute;
+        content: '';
+        height: 1em;
+        background: rgba(0, 0, 0, .2);
+      }
+      .loader .eye__pupil span::before {
+        left: 1em;
+        top: 0;
+        width: 2em;
+      }
+      .loader .eye__pupil span::after {
+        left: 0;
+        top: 1em;
+        width: 1em;
+      }
+      @keyframes eyemove {
+        0% {
+          transform: translateX(2em);
+        }
+        95% {
+          transform: translateX(-1em);
+        }
+        100% {
+          transform: translateX(2em);
+        }
+      }
+      @keyframes eyelid-top {
+        0% {
+          transform: translateY(1.5em);
+        }
+        10% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(0);
+        }
+        55% {
+          transform: translateY(1em);
+        }
+        70% {
+          transform: translateY(1em);
+        }
+        90% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(1.5em);
+        }
+      }
+      @keyframes eyelid-bottom {
+        0% {
+          transform: translateY(-1.5em);
+        }
+        10% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(0);
+        }
+        55% {
+          transform: translateY(-1em);
+        }
+        70% {
+          transform: translateY(-1em);
+        }
+        90% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-1.5em);
+        }
+      }
+      @keyframes float-top {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-1em);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+      @keyframes float-bottom {
+        0% {
+          opacity: 1;
+          transform: scale(2.5, 4);
+        }
+        50% {
+          opacity: .5;
+          transform: scale(2, 3.5);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(2.5, 4);
+        }
+      }
+      </style>
+  </head>
+  <body>
+    <div class="loader">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+        viewBox="0 0 140 50" style="enable-background:new 0 0 140 50;" xml:space="preserve">
+        <polygon fill="none" points="120,20 120,10 80,10 80,30 90,30 90,40 120,40 120,20"/>
+      	<polygon fill="none" points="60,10 20,10 20,40 50,40 50,30 60,30 60,10"/>
+      	<polygon points="20,20 20,10 60,10 60,0 0,0 0,20 10,20 10,40 20,40 20,20"/>
+      	<polygon points="30,40 20,40 20,50 50,50 50,40 30,40"/>
+      	<polygon points="50,40 60,40 60,30 50,30 50,40"/>
+      	<polygon points="130,0 80,0 80,10 120,10 120,40 130,40 130,20 140,20 140,0 130,0"/>
+      	<polygon points="100,40 90,40 90,50 120,50 120,40 100,40"/>
+      	<polygon points="80,30 80,40 90,40 90,30 80,30"/>
+      	<polygon points="80,10 60,10 60,30 80,30 80,10"/>
+      </svg>
+      <div class="eye eye--left">
+        <span class="eye__pupil"><span></span></span>
+        <span class="eye__eyelid eye__eyelid--top"></span>
+        <span class="eye__eyelid eye__eyelid--bottom"></span>
+      </div>
+      <div class="eye eye--right">
+        <span class="eye__pupil"><span></span></span>
+        <span class="eye__eyelid eye__eyelid--top"></span>
+        <span class="eye__eyelid eye__eyelid--bottom"></span>
+      </div>
+      <span class="loader__text">
+        Loading Pixelbrain...<br><b>It can take a few months!</b>
+        <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="false"></div>
+      </span>
+    </div>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) return;
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=190529737650178";
+       fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-82176631-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
